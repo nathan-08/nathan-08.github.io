@@ -1,4 +1,4 @@
-{
+const dict = {
 	"words": [	"A",
 	"a",
 	"aa",
@@ -235884,6 +235884,6 @@
 	"Zythia",
 	"zythum",
 	"Zyzomys",
-	"Zyzzogeton",
+	"Zyzzogeton"
 	]
-}
+};
