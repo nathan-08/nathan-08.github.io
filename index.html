@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Word Game Helper</title>
+  <title>WGH</title>
   <link rel="shortcut icon" type="image/jpg" href="img/favicon.ico">
   <link rel="stylesheet" href="style/main.css">
   <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -11,6 +11,18 @@
 <body>
   <div class="container">
     <h1 id="name">Word Game Helper</h1>
+    <div id="instructions">
+      Enter a sequence of letters and asterisks
+      <br>and click "run" to get a list of possible matching words.
+      <br>E.g. appl* -> apple, apply
+    </div>
+    <input id="main-input">
+    </input>
+    <div style="padding-top: 8px; padding-bottom: 12px;">
+      <button id="main-btn" style="cursor: pointer;">run</button>
+    </div>
+    <div id="results">
+    </div>
   </div>
 </body>
 <script type="text/javascript" src="dict.js">
@@ -18,5 +30,37 @@
 <script type="text/javascript">
   console.log ('script working3');
   console.log ('num words: ', dict.words.length);
+  const input = document.getElementById ('main-input');
+  const btn = document.getElementById ('main-btn');
+  btn.addEventListener('click', e=>{
+    const p = input.value;
+    let matches = [];
+    for (let y = 0; y < dict.words.length; ++y) {
+      const wrd = dict.words[y];
+      if (wrd.length != p.length) continue;
+      let ismatch = true;
+      for (let i = 0; i < wrd.length; ++i) {
+        if (p.charAt(i) == '*') continue;
+        if (p.charAt(i) != wrd.charAt(i)) {
+          ismatch = false;
+          break;
+        }
+      }
+      if (ismatch) matches.push (wrd);
+    }
+    set_results (matches);
+  });
+  function set_results (words) {
+    const r = document.getElementById ('results');
+    while (r.firstChild) r.removeChild (r.firstChild);
+    if (words.length == 0) {
+      words.push ('no matches');
+    }
+    words.forEach(wrd => {
+      const d = document.createElement('div');
+      d.appendChild (document.createTextNode(wrd));
+      r.appendChild (d);
+    });
+  }
 </script>
 </html>

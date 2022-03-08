@@ -20,12 +20,9 @@ h1 {
   box-sizing: border-box;
 }
 body {
+  display: flex;
+  align-items: center;
   background-color: #333;
-  background-blend-mode: screen;
-  background-image: url("../img/route.png");
-  background-attachment: fixed;
-  background-repeat: repeat;
-  background-size: cover;
 }
 .face-img {
   float: right;
@@ -53,35 +50,12 @@ td.empty, th.empty {
   padding: 8px;
   border-radius: 4px;
 }
-.nav {
+#main-input {
   font-family: monospace;
-  position: sticky;
-  background-color: transparent;
-  top: 0;
-  left: 0;
-  text-align: right;
-  display: flex;
-  justify-content: flex-end;
-  align-items: flex-end;
+  font-size: 20px;
+  padding: 2rem;
 }
-.nav > div {
-  background: #eee;
+#instructions {
   padding: 8px;
-  border-radius: 4px;
-  margin-right: 20px;
-}
-.clearfix {
-  overflow: auto;
-}
-.poem-container {
-  color: #000;
-  text-align: left;
-  background-image: url("../img/flowers.jpeg");
-  background-repeat: none;
-  background-size: cover;
-  background-color: #bbb;
-  background-blend-mode: screen;
-  padding-right: 8px;
-  padding-bottom: 8px;
-  padding-top: 4px;
+  font-size: 12px;
 }
